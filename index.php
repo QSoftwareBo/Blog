@@ -3,7 +3,7 @@
 //carga de archivos donde se encuentran las funciones en la carpeta model
 require 'models/model.conexion.php';
 require 'models/model.ListadoPosts.php';
-require 'models/model.ListadoComentarios.php';
+require 'models/model.Comentarios.php';
 
 //llamada a funciones 
 require 'functions.php'; 
@@ -15,6 +15,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 }
 //carga de la vista en el navegador
 
-require 'views/ListadoPublico.php';
+require 'views/view.ListadoPublico.php';
 
 ?>
