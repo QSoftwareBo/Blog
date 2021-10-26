@@ -5,16 +5,7 @@ require 'models/model.conexion.php';
 require 'models/model.ListadoPosts.php';
 require 'models/model.Comentarios.php';
 
-//llamada a funciones 
-require 'functions.php'; 
-
-if ($_SERVER['REQUEST_METHOD']=='POST'){
-    $IdUsuario=htmlspecialchars($_POST['IdUsuario']);
-    $IdPost=htmlspecialchars($_POST['IdPost']);
-    $rechazados =ObtenerComentariosRechazados($conexion,$IdUsuario,$IdPost);
-}
 //carga de la vista en el navegador
-
 require 'views/view.ListadoPublico.php';
 
 ?>

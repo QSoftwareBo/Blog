@@ -1,25 +1,18 @@
 <?php
 require '../models/model.conexion.php';
 require '../models/model.Comentarios.php';
+require 'view.Header.php';
 $conexion=conexion();
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/estilos.css">
-    
-    <title>Blog_Prototipo</title>
-</head>
+
 <?php if ($_SERVER['REQUEST_METHOD']=='POST'){
     $IdUsuario=htmlspecialchars($_POST['IdUsuario']);
     $IdPost=htmlspecialchars($_POST['IdPost']);
     $rechazados =ObtenerComentariosRechazados($conexion,$IdUsuario,$IdPost);
 }
 ?>
+
 <hr></hr>
 <table>
         <h2>Listado de Comentarios Rechazados</h2>
