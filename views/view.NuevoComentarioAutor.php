@@ -6,7 +6,7 @@
 
     <label for="Titulo">Id Post & Título</label>
     <li>
-    <input disabled type="text" name="Titulo" id="Titulo" value="<?php echo $post['IdP'].'.- '.$post['Titulo']?>" class="field-style field-split align-left" />
+    <input disabled type="text" name="Titulo" id="Titulo" value="<?php echo $post['IdPost'].'.- '.$post['Titulo']?>" class="field-style field-split align-left" />
     </li>
 
     <label for="Fecha">Fecha de Publicación del Post</label>
@@ -36,7 +36,7 @@
     
     <li>
     
-    <input type="submit"  value="Guardar nuevo Comentario" onclick="alert('Un Nuevo Comentario fue creado')" />
+    <input type="submit"  value="Guardar nuevo Comentario"  />
     
     
     </li>

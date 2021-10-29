@@ -6,7 +6,7 @@ $IdPost='1';
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
    
-    $Contenido = $_POST['Contenido'];
+    $Contenido = htmlspecialchars($_POST['Contenido']);
     $statement = $conexion->prepare ("UPDATE comentario SET Contenido = '$Contenido' WHERE Id=$IdPost");
     $statement->execute();
     header ('Location: index.php');

@@ -6,7 +6,7 @@
 
     <label for="Titulo">Id Post & Título</label>
     <li>
-    <input disabled type="text" name="Titulo" id="Titulo" value="<?php echo $post['IdP'].'.- '.$post['Titulo']?>" class="field-style field-split align-left" />
+    <input disabled type="text" name="Titulo" id="Titulo" value="<?php echo $post['IdPost'].'.- '.$post['Titulo']?>" class="field-style field-split align-left" />
     </li>
 
     <label for="Fecha">Fecha de Publicación del Post</label>
@@ -16,7 +16,7 @@
 
     <label for="IdComentario">Id Comentario</label>
     <li>
-    <input type="text" name="IdComentario" id="IdComentario" value="<?php echo $post['IdC']?>" class="field-style field-split align-left" disabled/>
+    <input type="text" name="IdComentario" id="IdComentario" value="<?php echo $post['IdComentario']?>" class="field-style field-split align-left" disabled/>
     </li>
 
     <label for="FechaCom">Fecha de Comentario</label>
@@ -31,7 +31,7 @@
 
     <label for="Contenido">Comentarios</label>
     <li>
-    <textarea name="Contenido" id="Contenido"  class="field-style"><?php echo $post['CnCm'];?></textarea>
+    <textarea name="Contenido" id="Contenido"  class="field-style"><?php echo $post['ContenidoComentario'];?></textarea>
     </li>
     
     <li>

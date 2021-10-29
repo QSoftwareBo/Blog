@@ -35,7 +35,7 @@
     </li>
 
     </ul>
-    </form>
+  </form>
 <?php 
 require 'view.Footer.php';
 ?>

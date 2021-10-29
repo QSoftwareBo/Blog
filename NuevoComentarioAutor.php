@@ -7,7 +7,7 @@ $IdUsuario='1';
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
     $TipoComentario='PUBLICO';
-    $Contenido = $_POST['Contenido'];
+    $Contenido = htmlspecialchars($_POST['Contenido']);
     $statement = $conexion->prepare ("INSERT INTO comentario (Id, Contenido, FechaDeComentario, TipoDeComentario, IdUsuario, IdPost) VALUES (null, :Contenido, CURDATE(), :TipoComentario, :IdUsuario, :IdPost )");   
     $statement->execute(array(
         ":Contenido"=>$Contenido,
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
         ":IdPost"=>$IdPost
     ));
     header ('Location: index.php');
-    alert('Se ha creado un nuevo comentario');
+   
 }
 
 else{
