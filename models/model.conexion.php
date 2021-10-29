@@ -1,6 +1,4 @@
 <?php
-
-
 function conexion(){
      try {
         $conexion = new PDO('mysql:host=localhost;dbname=proyecto001','root','centinela');
@@ -11,6 +9,4 @@ function conexion(){
     }
 
 }
-
-
 ?>
