@@ -44,3 +44,7 @@ $conexion=conexion();
             <?php endforeach;?> 
         </tr>
     </table>
+
+<?php 
+require 'view.Footer.php';
+?>
