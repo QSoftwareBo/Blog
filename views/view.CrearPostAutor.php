@@ -8,7 +8,7 @@
     <h2>Nuevo Post</h2>
     <label for="IdAutor">Id Autor del Post</label>
     <li>
-    <input type="text" name="IdAutor" id="IdAutor" class="field-style field-split align-left" disabled/>
+    <input type="text" name="IdAutor" id="IdAutor" value='1' class="field-style field-split align-left" disabled/>
     </li>
 
     <label for="Titulo">Título del Post</label>
