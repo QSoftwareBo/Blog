@@ -13,6 +13,7 @@ $publicados =ObtenerPostsPublicados($conexion);
             <th>Título</th>
             <th>IdAutor</th>
             <th>Estado</th>
+            <th>Ver Detalle</th>
         </tr>
         <tr>
            <?php foreach ($publicados as $dato):?>
@@ -21,6 +22,7 @@ $publicados =ObtenerPostsPublicados($conexion);
             <td><?php echo $dato['Titulo'];?></td>
             <td><?php echo $dato['IdAutor'];?></td>
             <td><?php echo $dato['Estado'];?></td>
+            <td><input type="button" value="Detalle" onclick="location.href='../DetalleRegistro.php?id=<?php echo $dato['Id'];?>'"></td>
             </tr>
             <?php endforeach;?> 
         </tr>
@@ -29,3 +31,4 @@ $publicados =ObtenerPostsPublicados($conexion);
 <?php 
 require 'view.Footer.php';
 ?>
+
