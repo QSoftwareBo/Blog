@@ -25,7 +25,7 @@
     <li>
     
     <input type="submit"  name= "Borrador" value="Guardar como Borrador" />
-    <input type="submit"  name= "Revision" value="Enviar para Revisión">
+    <input type="submit"  name= "Revision" value="Enviar para Revision">
     
     </li>
 

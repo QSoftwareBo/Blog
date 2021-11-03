@@ -5,27 +5,27 @@ $conexion=conexion();
 $IdUsuario='1';
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
-    $Estado1=$_POST['Borrador'];
-    $Estado2=$_POST['Revision'];
-    if(isset($Estado1)){
+    $EstadoBorrador=htmlspecialchars($_POST['Borrador']);
+    $EstadoRevision=htmlspecialchars($_POST['Revision']);
+    if(isset($EstadoBorrador)){
         $Estado='BORRADOR';
     }
-    if(isset($Estado2)){
+    if(isset($EstadoRevision)){
         $Estado='ENVIADO';
     }
     $Titulo=htmlspecialchars($_POST['Titulo']);
     $Contenido = htmlspecialchars($_POST['Contenido']);
-    $statement = $conexion->prepare ("INSERT INTO post (Id, Titulo, Contenido, FechaDePublicacion, Estado, IdAutor) VALUES (null, :Contenido, :Titulo, CURDATE(), :Estado, :IdUsuario)");   
+    $statement = $conexion->prepare ("INSERT INTO post (Id, Titulo, Contenido, FechaDePublicacion, Estado, IdAutor) VALUES (null, :Titulo, :Contenido, CURDATE(), :Estado, :IdUsuario)");   
     $statement->execute(array(
         ":Titulo"=>$Titulo,
         ":Contenido"=>$Contenido,
         ":Estado"=>$Estado,
         ":IdUsuario"=>$IdUsuario
     ));
-    if ($Estado1){
-    header ('Location: views/view.PostsBorradores.php');
+    if ($EstadoBorrador){
+        header ('Location: views/view.PostsBorradores.php');
     }
-    if ($Estado2){
+    if ($EstadoRevision){
         header ('Location: views/view.PostsEnviados.php');
     }
    
