@@ -1,5 +1,5 @@
 
-
+<link rel="stylesheet" href="css/estilos.css">
   <form class="form-style-9" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <ul>
     
