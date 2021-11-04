@@ -14,6 +14,7 @@ $borradores =ObtenerPostsBorradores($conexion);
             <th>Título</th>
             <th>IdAutor</th>
             <th>Estado</th>
+            <th>Detalle</th>
         </tr>
         <tr>
            <?php foreach ($borradores as $dato):?>
@@ -22,6 +23,7 @@ $borradores =ObtenerPostsBorradores($conexion);
             <td><?php echo $dato['Titulo'];?></td>
             <td><?php echo $dato['IdAutor'];?></td>
             <td><?php echo $dato['Estado'];?></td>
+            <td><input type="button" onclick="location.href='../EditarPost.php?id=<?php echo $dato['Id'];?>'" value="Ver Detalle"></td>
             </tr>
             <?php endforeach;?> 
         </tr>
