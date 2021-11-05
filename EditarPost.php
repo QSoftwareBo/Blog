@@ -5,7 +5,7 @@ require 'views/view.Header.php';
 $conexion=conexion();
 
 if(isset($_GET['id'])){
-    $IdPost=htmlspecialchars($_GET['id']);
+    $IdPost = htmlspecialchars ($_GET['id']);
 }else{
     $IdPost='1';
 }
