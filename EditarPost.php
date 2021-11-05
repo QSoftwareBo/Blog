@@ -3,7 +3,13 @@ require 'models/model.conexion.php';
 require 'models/model.EditarPost.php';
 require 'views/view.Header.php';
 $conexion=conexion();
-$IdPost='1';
+
+if(isset($_GET['id'])){
+    $IdPost = htmlspecialchars ($_GET['id']);
+}else{
+    $IdPost='1';
+}
+
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
     
