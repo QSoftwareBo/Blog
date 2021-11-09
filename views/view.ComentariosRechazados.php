@@ -4,9 +4,8 @@ require '../models/model.Comentarios.php';
 require 'view.Header.php';
 $conexion=conexion();
 
-?>
-
-<?php if ($_SERVER['REQUEST_METHOD']=='POST'){
+if ($_SERVER['REQUEST_METHOD']=='POST'){
+    
     $IdUsuario=htmlspecialchars($_POST['IdUsuario']);
     $IdPost=htmlspecialchars($_POST['IdPost']);
     $rechazados =ObtenerComentariosRechazados($conexion,$IdUsuario,$IdPost);

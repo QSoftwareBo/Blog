@@ -16,7 +16,7 @@
 
     <label for="IdComentario">Id Comentario</label>
     <li>
-    <input type="text" name="IdComentario" id="IdComentario"  class="field-style field-split align-left" disabled/>
+    <input type="text" name="IdComentario" id="IdComentario" value="<?php echo $post['IdComentario']?>"  class="field-style field-split align-left" disabled/>
     </li>
 
     <label for="FechaCom">Fecha de Comentario</label>

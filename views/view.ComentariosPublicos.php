@@ -8,7 +8,7 @@ $comentarios =ObtenerComentariosPublicos($conexion);
 
 <hr></hr>
 <table>
-        <h2>Listado de Comentarios Públicos</h2>
+        <h2>Lista General De Comentarios</h2>
         <tr>
             <th>Id</th>
             <th>Comentario</th>
@@ -16,6 +16,7 @@ $comentarios =ObtenerComentariosPublicos($conexion);
             <th>IdPost</th>
             <th>Tipo de Comentario</th>
             <th>Fecha de Comentario</th>
+            <th>Detalle</th>
         </tr>
         <tr>
            <?php foreach ($comentarios as $dato):?>
@@ -26,6 +27,7 @@ $comentarios =ObtenerComentariosPublicos($conexion);
             <td><?php echo $dato['IdPost'];?></td>
             <td><?php echo $dato['TipoDeComentario'];?></td>
             <td><?php echo $dato['FechaDeComentario'];?></td>
+            <td><input type="button" onclick="location.href='../DetalleComentariosAutor.php?IdComentario=<?php echo $dato['Id'];?>&IdPost=<?php echo $dato['IdPost'];?>'" value="Detalle"></td>
             </tr>
             <?php endforeach;?> 
         </tr>
