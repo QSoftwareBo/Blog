@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 }
 
 else{
-     $post = DetalleComentariosAutor($conexion, $IdComentario);
+     $post = ObtenerDetalleComentariosAutor($conexion, $IdComentario);
      $post=$post[0];
 }
 
