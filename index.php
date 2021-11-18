@@ -1,6 +1,5 @@
 <?php
 
-//carga de la vista en el navegador
-require 'views/view.ListadoPublico.php';
-
+//carga de la vista del Login en el navegador
+require 'Login.php';
 ?>
