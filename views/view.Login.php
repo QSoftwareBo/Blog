@@ -11,25 +11,35 @@
 				<ul>
 					<label for="nombre">Ingrese su nombre de Usuario</label>
 					<li>
-						<input class="usuario" type="text" name="nombre" placeholder="Ingrese nombre de Usuario" required>
+						<input class="usuario" type="text" id="nombre" name="nombre" placeholder="Ingrese nombre de Usuario" required>
 					</li>
 
 					<label for="password">Ingrese su password</label>
 					<li>
-						<input class="password_btn" type="password" name="password" placeholder="Password" required>
+						<input class="password_btn" type="password" id="password" name="password" placeholder="Password" required>
 					</li>
 					<li>
 						<input type="submit" value="Ingresar">
 					</li>
 				</ul>
 			</div>
-
+			
+			<?php if(!empty($errores)): ?>
+				<div>
+					<ul>
+					<?php 
+					echo "<script type='text/javascript'> alert('$errores');</script>"; 
+					$errores='';
+					?>
+					</ul>
+				</div>
+			<?php endif; ?>
 			
 		</form>
 
-		<p class="texto-registrate">
+		<p>
 			¿ Aun no tienes cuenta ?
-			<a href="registrate.php">Regístrate</a>
+			<a href="#">Regístrate</a>
 		</p>
 
 	</div>
