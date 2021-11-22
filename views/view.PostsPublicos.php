@@ -1,13 +1,17 @@
 <?php
 require '../models/model.conexion.php';
 require '../models/model.ListadoPosts.php';
+require '../models/model.FuncionesDeSesion.php';
 require 'view.Header.php';
 $conexion=conexion();
+/*Sesion Vigente para la vista*/
+$comprobar=ComprobarSesionVistas();
 $publicados =ObtenerPostsPublicados($conexion);
 ?>
 <hr></hr>
 <table>
         <h2>Listado de Posts Públicos</h2>
+        <input type="button" onclick="location.href='../models/model.CerrarSesion.php'" value="Cerrar Sesion">
         <tr>
             <th>Id</th>
             <th>Título</th>

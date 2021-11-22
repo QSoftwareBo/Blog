@@ -1,6 +1,9 @@
 <?php 
+require 'models/model.FuncionesDeSesion.php';
 require 'models/model.conexion.php';
 require 'views/view.Header.php';
+
+$comprobar=ComprobarSesionControladores();
 $conexion=conexion();
 $IdUsuario='1';
 

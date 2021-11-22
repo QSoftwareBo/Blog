@@ -2,6 +2,8 @@
 require 'models/model.conexion.php';
 require 'models/model.EditarPost.php';
 require 'views/view.Header.php';
+require 'models/model.FuncionesDeSesion.php';
+$comprobar=ComprobarSesionControladores();
 $conexion=conexion();
 
 if(isset($_GET['id'])){
