@@ -1,6 +1,7 @@
 <?php
 require 'models/model.RegistroUsuario.php';
 require 'models/model.VerificarUsuario.php';
+require 'models/model.ValidacionPassword.php';
 
 session_start();
 // Comprobamos si ya tiene una sesion
@@ -18,19 +19,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = VerificarUsuario($usuario);
     
     if ($nombre != false) {
-        $errores .= 'El nombre de usuario ya existe';
+        $errores .= 'El nombre de usuario ya existe\n';
     }
     
-    $password = password_hash($password,PASSWORD_DEFAULT);
-	$password2 = password_hash($password,PASSWORD_DEFAULT);
+	$pass=ValidarPassword($password);
+	if ($pass!=''){
+		$errores.=$pass;
+	}
 
 	// Comprobamos que las contraseñas sean iguales.
-	if (!password_verify($password,$password2)) {
-			$errores.= 'Las contraseñas no son iguales';
+	if ($password!=$password2) {
+			$errores.= 'Las contraseñas no coinciden\n';
 	}
 
     // Comprobamos si hay errores, sino entonces agregamos el usuario y redirigimos.
 	if ($errores == '') {
+		$password = password_hash($password,PASSWORD_DEFAULT);
 		$registrar=RegistrarUsuario($usuario,$password);
         if (isset($registrar)){
             // Despues de registrar al usuario redirigimos para que inicie sesion.

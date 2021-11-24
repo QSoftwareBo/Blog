@@ -31,7 +31,10 @@ require 'view.Header.php';
 			<?php if(!empty($errores)): ?>
 				<div class="error">
 					<ul>
-						<?php echo $errores; ?>
+					<?php 
+					echo "<script type='text/javascript'> alert('$errores');</script>"; 
+					$errores='';
+					?>
 					</ul>
 				</div>
 			<?php endif; ?>

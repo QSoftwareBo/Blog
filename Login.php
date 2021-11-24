@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		//Con el avance de las tareas cumplidas, en esta seccion se utilizara 
 		//el método password_verify()
 		//Por ahora sólo se utiliza un if para el password NO ENCRIPTADO
-		if ($password==$resultado['Password']){
+		if (password_verify($password,$resultado['Password'])){
 			
 			//Se establecen las variables de sesion que seran recibidas en 
 			//en index.php para iniciar sesion
