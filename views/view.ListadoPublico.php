@@ -4,6 +4,7 @@ require 'view.Header.php';
     <link rel="stylesheet" href="css/estilos.css">
     <div>Estructura del Sprint hasta el Blog 10</div>
     <input type="button" onclick="location.href='../models/model.CerrarSesion.php'" value="Cerrar Sesion">
+
     <ul>
         <li><a href="../views/view.PostsPublicos.php">Listado de Posts Públicos</a></li>
         <li><a href="../views/view.PostsBorradores.php">Listado de Posts Borradores</a></li>
