@@ -20,8 +20,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if ($nombre != false) {
         $errores .= 'El nombre de usuario ya existe\n';
+		
     }
-    
+    else{
 	$pass=ValidarPassword($password);
 	if ($pass!=''){
 		$errores.=$pass;
@@ -41,6 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: Login.php');
         }
 		
+	}
 	}
 }  
 
