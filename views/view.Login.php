@@ -39,7 +39,7 @@
 
 		<p>
 			¿ Aun no tienes cuenta ?
-			<a href="#">Regístrate</a>
+			<a href="RegistroUsuario.php">Regístrate</a>
 		</p>
 
 	</div>

@@ -1,7 +1,7 @@
 <?php
 require 'view.Header.php';
 ?>
-
+<link rel="stylesheet" href="css/estilos.css">
 <div class="form-style-9">
 		<h1 class="titulo">Regístrate</h1>
 		
@@ -21,7 +21,7 @@ require 'view.Header.php';
 					
 					<label for="password2">Repite tu contraseña</label>
 					<li>
-						<input  type="password" id="password2"name="password2" placeholder="Repite la contraseña">
+						<input  type="password" id="password2" name="password2" placeholder="Repite la contraseña">
 					</li>
 					<li>
 						<input type="submit" value="Registrarse">
@@ -31,7 +31,10 @@ require 'view.Header.php';
 			<?php if(!empty($errores)): ?>
 				<div class="error">
 					<ul>
-						<?php echo $errores; ?>
+					<?php 
+					echo "<script type='text/javascript'> alert('$errores');</script>"; 
+					$errores='';
+					?>
 					</ul>
 				</div>
 			<?php endif; ?>
@@ -39,7 +42,7 @@ require 'view.Header.php';
 
 		<p class="texto-registrate">
 			¿ Ya tienes cuenta ?
-			<a href="../Login.php">Iniciar Sesión</a>
+			<a href="Login.php">Iniciar Sesión</a>
 		</p>
 
 	</div>
