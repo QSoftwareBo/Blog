@@ -1,6 +1,8 @@
 <?php
 require 'models/model.conexion.php';
 require 'models/model.DetalleComentariosAutor.php';
+require 'models/model.FuncionesDeSesion.php';
+$comprobar=ComprobarSesionControladores();
 $conexion=conexion();
 if (isset($_GET['IdComentario'])){
     $IdComentario=htmlspecialchars($_GET['IdComentario']);
