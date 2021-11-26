@@ -10,7 +10,7 @@ function ObtenerComentariosRechazados($conexion,$IdUsuario,$IdPost){
 }
 
 function ObtenerComentariosPublicos($conexion){
-    $sentencia = $conexion->prepare("SELECT  Id,Contenido,FechaDeComentario,TipoDeComentario,IdUsuario,IdPost FROM comentario where TipoDeComentario='PUBLICO'");
+    $sentencia = $conexion->prepare("SELECT  Id,Contenido,FechaDeComentario,TipoDeComentario,IdUsuario,IdPost FROM comentario ");
     $sentencia->execute();
 
     return $sentencia->fetchAll();

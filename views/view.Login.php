@@ -11,12 +11,12 @@
 				<ul>
 					<label for="nombre">Ingrese su nombre de Usuario</label>
 					<li>
-						<input class="usuario" type="text" id="nombre" name="nombre" placeholder="Ingrese nombre de Usuario" required>
+						<input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre de Usuario" required>
 					</li>
 
 					<label for="password">Ingrese su password</label>
 					<li>
-						<input class="password_btn" type="password" id="password" name="password" placeholder="Password" required>
+						<input  type="password" id="password" name="password" placeholder="Password" required>
 					</li>
 					<li>
 						<input type="submit" value="Ingresar">
