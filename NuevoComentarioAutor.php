@@ -6,7 +6,7 @@ $comprobar=ComprobarSesionControladores();
 $conexion=conexion();
 $IdPost='1';
 $IdUsuario='1';
-
+$IdComentario='1';
 if ($_SERVER['REQUEST_METHOD']=='POST'){
     $TipoComentario='PUBLICO';
     $Contenido = htmlspecialchars($_POST['Contenido']);
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 }
 
 else{
-     $post = DetalleComentariosAutor($conexion, $IdPost);
+     $post = ObtenerDetalleComentariosAutor($conexion, $IdPost, $IdComentario);
      $post=$post[0];
 }
 

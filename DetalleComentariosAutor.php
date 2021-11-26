@@ -4,19 +4,20 @@ require 'models/model.DetalleComentariosAutor.php';
 require 'models/model.FuncionesDeSesion.php';
 $comprobar=ComprobarSesionControladores();
 $conexion=conexion();
-$IdPost='1';
+if (isset($_GET['IdComentario'])){
+    $IdComentario=htmlspecialchars($_GET['IdComentario']);
+    
+} 
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
-   
     $Contenido = htmlspecialchars($_POST['Contenido']);
-    $statement = $conexion->prepare ("UPDATE comentario SET Contenido = '$Contenido' WHERE Id=$IdPost");
+    $statement = $conexion->prepare ("UPDATE comentario SET Contenido = '$Contenido' WHERE Id=$IdComentario");
     $statement->execute();
     header ('Location: index.php');
-    
 }
 
 else{
-     $post = DetalleComentariosAutor($conexion, $IdPost);
+     $post = ObtenerDetalleComentariosAutor($conexion, $IdComentario);
      $post=$post[0];
 }
 

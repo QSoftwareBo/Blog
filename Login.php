@@ -18,9 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $resultado=VerificarUsuario($nombre);
 	
 	if ($resultado !== false) {
-		
 		if (password_verify($password,$resultado['Password'])){
-			
 			$_SESSION['id']=$resultado['Id'];
 			$_SESSION['nombre']=$resultado['Nombre'];
 			$_SESSION['rol']=$resultado['Rol'];
