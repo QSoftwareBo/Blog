@@ -1,5 +1,8 @@
 <?php 
 require 'view.Header.php';
+require '../models/model.ComprobacionRol.php';
+restringirPublico();
+echo "<script type='text/javascript'> alert('Acceso no permitido');</script>";
 ?>
     <link rel="stylesheet" href="css/estilos.css">
     <h1>Acceso al usuario con Rol Publico</h1>
