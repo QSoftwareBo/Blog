@@ -1,7 +1,9 @@
 <?php
 require '../models/model.conexion.php';
 require '../models/model.Comentarios.php';
+require '../models/model.ComprobacionRol.php';
 require 'view.Header.php';
+restringirEditor();
 $conexion=conexion();
 $comentarios =ObtenerComentariosPublicos($conexion);
 ?>

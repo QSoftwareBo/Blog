@@ -1,7 +1,7 @@
 <?php
-session_start();
+
 function comprobar(){
-    
+    session_start();
     if ($_SESSION['rol']=="ESCRITOR"){
     header('Location: views/view.ListadoEscritor.php');
     die();
@@ -24,19 +24,21 @@ function comprobar(){
 }
 
 function restringirEditor(){
+        session_start();
         if ($_SESSION['rol']!='EDITOR'){
             header('location: ../index.php');
         }
        
 }
 function restringirEscritor(){
-        
+        session_start();
         if ($_SESSION['rol']!='ESCRITOR'){
             header('location: ../index.php');
         }
 }
 
 function restringirPublico(){
+        session_start();
         if ($_SESSION['rol']!='PUBLICO'){
             header('location: ../index.php');
         }

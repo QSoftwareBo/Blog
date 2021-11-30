@@ -18,8 +18,7 @@ function ObtenerPostsEnviados($conexion){
 
 function ObtenerPostsPublicados($conexion){
 
-            $sentencia = $conexion->prepare("SELECT Id,Titulo,FechaDePublicacion,IdAutor,Estado FROM Post WHERE Estado='PUBLICADO'");
-            
+            $sentencia = $conexion->prepare("SELECT Id,Titulo,FechaDePublicacion, IdAutor ,Estado FROM post WHERE Estado='PUBLICADO' ");
             $sentencia->execute();
             return $sentencia->fetchAll();
             }
