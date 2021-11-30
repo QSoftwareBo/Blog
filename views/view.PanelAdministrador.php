@@ -1,46 +1,27 @@
-<?php
-require '../models/model.conexion.php';
-require '../models/model.ListadoUsuarios.php';
-require '../models/model.FuncionesDeSesion.php';
-require 'view.Header.php';
-$conexion=conexion();
-/*Sesion Vigente para la vista*/
-$comprobar=ComprobarSesionVistas();
-$lista =ObtenerListaUsuarios($conexion);
-?>
+
+<link rel="stylesheet" href="css/estilos.css">
 <hr></hr>
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" >
+<form action="models/model.CambioRol.php" method="POST" >
     <table>
             <h2>Listado de Usuarios</h2>
-            <input type="button" onclick="location.href='../models/model.CerrarSesion.php'" value="Cerrar Sesion"></br>
+            <input type="button" onclick="location.href='models/model.CerrarSesion.php'" value="Cerrar Sesion"></br>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Fecha de Registro</th>
                 <th>Rol Actual</th>
             </tr>
             <tr>
             <?php foreach ($lista as $dato):?>
                 <tr>
-                <td><?php echo $dato['Id'];?></td>
+                <td name="Id" value="<?php echo $dato['Id'];?>"><?php echo $dato['Id'];?></td>
                 <td><?php echo $dato['Nombre'];?></td>
-                <td><?php echo $dato['FechaRegistro'];?></td>
-                <td>
-                    <select  name="rol">
-                        <option value="<?php $dato['Rol'];?>"><?php echo $dato['Rol'];?></option>
-                        <option value="ESCRITOR">ESCRITOR</option>
-                        <option value="EDITOR">EDITOR</option>
-                        <option value="PUBLICO">PUBLICO</option>
-                    </select>
-                </td>
-                
+                <td><?php echo $dato['Rol'];?>  <input type="button" onclick="location.href='DetalleUsuario.php?id=<?php echo $dato['Id'];?>'" value="Modificar"></td>
+                <td></td>   
                 </tr>
                 
                 <?php endforeach;?> 
             </tr>
-            <tr>
-                <td><input type="submit" value="Ejecutar Cambio de roles"></td>
-            </tr>
+            
     </table>
     
 </form>

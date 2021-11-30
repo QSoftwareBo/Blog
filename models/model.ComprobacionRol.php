@@ -16,6 +16,11 @@ function comprobar(){
         header('Location: views/view.ListadoPublico.php');
     	die();
 	}
+
+    if ($_SESSION['rol']=="ADMINISTRADOR"){
+        header('Location: PanelAdministrador.php');
+    	die();
+	}
 }
 
 function restringirEditor(){
@@ -35,5 +40,11 @@ function restringirPublico(){
         if ($_SESSION['rol']!='PUBLICO'){
             header('location: ../index.php');
         }
+}
+
+function restringirAdministrador(){
+    if ($_SESSION['rol']!='ADMINISTRADOR'){
+        header('location: ../index.php');
+    }
 }
 ?>
