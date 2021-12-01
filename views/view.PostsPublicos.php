@@ -11,7 +11,7 @@ $publicados =ObtenerPostsPublicados($conexion);
 <hr></hr>
 <table>
         <h2>Listado de Posts Públicos</h2>
-        <input type="button" onclick="location.href='../models/model.CerrarSesion.php'" value="Cerrar Sesion">
+        <input type="button" onclick="location.href='../CerrarSesion.php'" value="Cerrar Sesion">
         <tr>
             <th>Id</th>
             <th>Título</th>

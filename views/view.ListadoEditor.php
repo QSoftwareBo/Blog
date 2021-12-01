@@ -6,7 +6,7 @@ echo "<script type='text/javascript'> alert('Acceso no permitido');</script>";
 ?>
     <link rel="stylesheet" href="css/estilos.css">
     <h1>Acceso al sistema con Rol Editor</h1>
-    <input type="button" onclick="location.href='../models/model.CerrarSesion.php'" value="Cerrar Sesion">
+    <input type="button" onclick="location.href='../CerrarSesion.php'" value="Cerrar Sesion">
     <ul>
         <li><a href="../views/view.PostsEnviados.php">Listado de Posts Enviados</a></li>
         <li><a href="../views/view.ComentariosPublicos.php">Listado de Comentarios Públicos</a></li>
