@@ -1,4 +1,4 @@
 <?php
-require 'models/model.ComprobacionRol.php';
+require 'ComprobacionRol.php';
 comprobar();
 ?>

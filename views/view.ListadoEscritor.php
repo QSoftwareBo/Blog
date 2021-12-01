@@ -1,6 +1,6 @@
 <?php 
 require 'view.Header.php';
-require '../models/model.ComprobacionRol.php';
+require '../ComprobacionRol.php';
 restringirEscritor();
 echo "<script type='text/javascript'> alert('Acceso no permitido');</script>";
 ?>
