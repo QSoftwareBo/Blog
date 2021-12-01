@@ -1,13 +1,12 @@
 <?php
 require '../models/model.conexion.php';
 require '../models/model.ListadoPosts.php';
-require '../models/model.FuncionesDeSesion.php';
-require '../models/model.ComprobacionRol.php';
+require '../ComprobacionRol.php';
+require '../FuncionesDeSesion.php';
 require 'view.Header.php';
 restringirEscritor();
+ComprobarSesionVistas();
 $conexion=conexion();
-/*Sesion Vigente para la vista*/
-$comprobar=ComprobarSesionVistas();
 $publicados =ObtenerPostsPublicados($conexion);
 ?>
 <hr></hr>
@@ -16,17 +15,17 @@ $publicados =ObtenerPostsPublicados($conexion);
         <tr>
             <th>Id</th>
             <th>Título</th>
-            <th>IdAutor</th>
+            <th>Autor</th>
             <th>Estado</th>
             <th>Detalle</th>
         </tr>
         <tr>
            <?php foreach ($publicados as $dato):?>
             <tr>
-            <td><?php echo $dato['Id'];?></td>
-            <td><?php echo $dato['Titulo'];?></td>
-            <td><?php echo $dato['IdAutor'];?></td>
-            <td><?php echo $dato['Estado'];?></td>
+            <td><?php echo $dato['IdPost'];?></td>
+            <td><?php echo $dato['PostTitulo'];?></td>
+            <td><?php echo $dato['Autor'];?></td>
+            <td><?php echo $dato['PostEstado'];?></td>
             <td><input type="button" onclick="location.href='../EditarPost.php?id=<?php echo $dato['Id'];?>'" value="Ver Detalle"></td>
             </tr>
             <?php endforeach;?> 

@@ -2,8 +2,10 @@
 require 'models/model.conexion.php';
 require 'models/model.CambioRol.php';
 require 'views/view.Header.php';
-require 'models/model.FuncionesDeSesion.php';
-$comprobar=ComprobarSesionControladores();
+require 'ComprobacionRol.php';
+require 'FuncionesDeSesion.php';
+restringirAdministrador();
+ComprobarSesionControladores();
 $conexion=conexion();
 
 if(isset($_GET['id'])){
@@ -14,7 +16,7 @@ else{
     }  
 
     if ($_SERVER['REQUEST_METHOD']=='POST'){
-        $Rol = $_POST['rolB'];
+        $Rol = $_POST['rolNuevo'];
         $Id=$_POST['IdUser'];
         $statement = $conexion->prepare('UPDATE usuario SET Rol = :rol WHERE Id= :id');
         $statement->execute(array(

@@ -2,11 +2,13 @@
 
 require 'models/model.conexion.php';
 require 'models/model.ListadoUsuarios.php';
-require 'models/model.FuncionesDeSesion.php';
+require 'ComprobacionRol.php';
+require 'FuncionesDeSesion.php';
 require 'views/view.Header.php';
-$comprobar=ComprobarSesionControladores();
+restringirAdministrador();
+ComprobarSesionControladores();
 $conexion=conexion();
-$lista =ObtenerListaUsuarios($conexion);
+$ListaUsuarios =ObtenerListaUsuarios($conexion);
 require 'views/view.PanelAdministrador.php';
 
 ?>

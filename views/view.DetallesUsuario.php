@@ -19,14 +19,14 @@
     <input type="text" name="Fecha" id="Fecha" value="<?php echo $user['FechaRegistro']?>" class="field-style field-split align-left" disabled/>
     </li>
 
-    <label for="rolA">Rol Actual Del usuario</label>
+    <label for="rolUsuario">Rol Actual Del usuario</label>
     <li>
-    <input type="text" name="rolA" id="rolA" value="<?php echo $user['Rol']?>" class="field-style field-split align-left" disabled/>
+    <input type="text" name="rolUsuario" id="rolUsuario" value="<?php echo $user['Rol']?>" class="field-style field-split align-left" disabled/>
     </li>
 
-    <label for="rolB">Cambiar A Rol</label>
+    <label for="rolNuevo">Cambiar A Rol</label>
     <li>
-        <select name="rolB" id="rolB">
+        <select name="rolNuevo" id="rolNuevo">
             <option value="PUBLICO"></option>
             <option value="PUBLICO">PUBLICO</option>
             <option value="ESCRITOR">ESCRITOR</option>

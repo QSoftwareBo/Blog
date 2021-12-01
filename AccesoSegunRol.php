@@ -1,4 +1,7 @@
 <?php
-require 'models/model.ComprobacionRol.php';
+require 'ComprobacionRol.php';
+require 'FuncionesDeSesion.php';
 comprobar();
+ComprobarSesionControladores();
+
 ?>

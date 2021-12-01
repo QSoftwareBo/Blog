@@ -45,6 +45,7 @@ function restringirPublico(){
 }
 
 function restringirAdministrador(){
+        session_start();
     if ($_SESSION['rol']!='ADMINISTRADOR'){
         header('location: ../index.php');
     }

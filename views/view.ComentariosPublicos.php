@@ -1,9 +1,11 @@
 <?php
 require '../models/model.conexion.php';
 require '../models/model.Comentarios.php';
-require '../models/model.ComprobacionRol.php';
+require '../ComprobacionRol.php';
+require '../FuncionesDeSesion.php';
 require 'view.Header.php';
 restringirEditor();
+ComprobarSesionVistas();
 $conexion=conexion();
 $comentarios =ObtenerComentariosPublicos($conexion);
 ?>

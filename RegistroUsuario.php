@@ -1,7 +1,7 @@
 <?php
 require 'models/model.RegistroUsuario.php';
 require 'models/model.VerificarUsuario.php';
-require 'models/model.ValidacionPassword.php';
+require 'ValidacionPassword.php';
 
 session_start();
 // Comprobamos si ya tiene una sesion

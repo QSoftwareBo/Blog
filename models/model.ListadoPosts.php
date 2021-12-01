@@ -1,7 +1,7 @@
 <?php
 function ObtenerPostsBorradores($conexion){
 
-            $sentencia = $conexion->prepare("SELECT Id,Titulo,IdAutor,Estado FROM post where Estado='BORRADOR'");
+            $sentencia = $conexion->prepare("SELECT post.Id as IdPost, post.Titulo as PostTitulo, usuario.Nombre as Autor, post.Estado as PostEstado  FROM post  INNER JOIN usuario ON usuario.Id = post.IdAutor WHERE post.Estado='BORRADOR'");
 
             $sentencia->execute();
             return $sentencia->fetchAll();
@@ -10,7 +10,7 @@ function ObtenerPostsBorradores($conexion){
 
 function ObtenerPostsEnviados($conexion){
 
-            $sentencia = $conexion->prepare("SELECT Id,Titulo,IdAutor,Estado FROM post where Estado='ENVIADO'");
+            $sentencia = $conexion->prepare("SELECT post.Id as IdPost, post.Titulo as PostTitulo, usuario.Nombre as Autor, post.Estado as PostEstado  FROM post  INNER JOIN usuario ON usuario.Id = post.IdAutor WHERE post.Estado='ENVIADO' ");
 
             $sentencia->execute();
             return $sentencia->fetchAll();
@@ -18,10 +18,8 @@ function ObtenerPostsEnviados($conexion){
 
 function ObtenerPostsPublicados($conexion){
 
-            $sentencia = $conexion->prepare("SELECT Id,Titulo,FechaDePublicacion, IdAutor ,Estado FROM post WHERE Estado='PUBLICADO' ");
+            $sentencia = $conexion->prepare("SELECT post.Id as IdPost, post.Titulo as PostTitulo, usuario.Nombre as Autor, post.Estado as PostEstado  FROM post  INNER JOIN usuario ON usuario.Id = post.IdAutor WHERE post.Estado='PUBLICADO' ");
             $sentencia->execute();
             return $sentencia->fetchAll();
             }
-
-
 ?>
