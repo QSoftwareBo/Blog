@@ -1,8 +1,9 @@
 <?php 
 require 'view.Header.php';
-require '../ComprobacionRol.php';
-restringirPublico();
-echo "<script type='text/javascript'> alert('Acceso no permitido');</script>";
+require '../ComprobarAccesos.php';
+$acceso=AccesoSoloPublico();
+if ($acceso){
+
 ?>
     <link rel="stylesheet" href="css/estilos.css">
     <h1>Acceso al usuario con Rol Publico</h1>
@@ -13,4 +14,9 @@ echo "<script type='text/javascript'> alert('Acceso no permitido');</script>";
     </ul>
 <?php 
 require 'view.Footer.php';
+}
+else{
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='../'</script>";
+}
 ?>

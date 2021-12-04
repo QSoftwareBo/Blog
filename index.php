@@ -4,7 +4,7 @@ session_start();
 //Se recibe la variable de sesion
 //si esta establecida se la envia a la vista de posts publicos
 //caso contrario a una pagina de prueba
-if(isset($_SESSION['nombre'] )) {
+if(isset($_SESSION['nombre'])) {
 	header ('Location: AccesoSegunRol.php');
 	die();
 } else {

@@ -2,8 +2,20 @@
 require '../models/model.conexion.php';
 require '../models/model.ListadoPosts.php';
 require 'view.Header.php';
+require '../ComprobarAccesos.php';
+$accesoEscritor=AccesoSoloEscritor();
+$accesoEditor=AccesoSoloEditor();
+if($accesoEscritor || $accesoEditor){
 $conexion=conexion();
-$enviados =ObtenerPostsEnviados($conexion);
+
+if(!empty($accesoEditor)){
+    $enviados =ObtenerPostsParaRevision($conexion);    
+}
+if(!empty($accesoEscritor)){
+$IdUser=$_SESSION['id'];
+$enviados =ObtenerPostsEnviadosEscritor($conexion,$IdUser);
+}
+
 ?>
 <hr></hr>
 <table>
@@ -13,7 +25,6 @@ $enviados =ObtenerPostsEnviados($conexion);
             <th>Título</th>
             <th>IdAutor</th>
             <th>Estado</th>
-            <th>Detalle</th>
         </tr>
         <tr>
            <?php foreach ($enviados as $dato):?>
@@ -21,12 +32,19 @@ $enviados =ObtenerPostsEnviados($conexion);
             <td><?php echo $dato['IdPost'];?></td>
             <td><?php echo $dato['PostTitulo'];?></td>
             <td><?php echo $dato['Autor'];?></td>
-            <td><?php echo $dato['PostEstado'];?></td>
-            <td><input type="button" onclick="location.href='../EditarPost.php?id=<?php echo $dato['Id'];?>'" value="Ver Detalle"></td>
+            <td><?php echo $dato['PostEstado'];?> para Revisión</td>
+            <?php if ($accesoEditor):?>
+            <td><input type="button" onclick="location.href='../NuevoComentarioAutor.php?id=<?php echo $dato['IdPost'];?>'" value="Revisar"></td>
+            <?php endif;?>
             </tr>
             <?php endforeach;?> 
         </tr>
     </table>
 <?php 
 require 'view.Footer.php';
+}
+else{
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='../'</script>";
+}
 ?>

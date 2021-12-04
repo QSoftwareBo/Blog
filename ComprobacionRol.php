@@ -1,10 +1,10 @@
 <?php
 
-function comprobar(){
+function comprobarRol(){
     session_start();
     if ($_SESSION['rol']=="ESCRITOR"){
     header('Location: views/view.ListadoEscritor.php');
-    die();
+        die();
 	}
     
     if ($_SESSION['rol']=="EDITOR") {
@@ -21,33 +21,5 @@ function comprobar(){
         header('Location: PanelAdministrador.php');
     	die();
 	}
-}
-
-function restringirEditor(){
-        session_start();
-        if ($_SESSION['rol']!='EDITOR'){
-            header('location: ../index.php');
-        }
-       
-}
-function restringirEscritor(){
-        session_start();
-        if ($_SESSION['rol']!='ESCRITOR'){
-            header('location: ../index.php');
-        }
-}
-
-function restringirPublico(){
-        session_start();
-        if ($_SESSION['rol']!='PUBLICO'){
-            header('location: ../index.php');
-        }
-}
-
-function restringirAdministrador(){
-        session_start();
-    if ($_SESSION['rol']!='ADMINISTRADOR'){
-        header('location: ../index.php');
-    }
 }
 ?>

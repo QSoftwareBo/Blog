@@ -1,47 +1,61 @@
-<?php require 'view.Header.php';?>
+<?php 
+require 'view.Header.php';
+if($acceso){
+?>
 <link rel="stylesheet" href="css/estilos.css">
 
   <form class="form-style-9" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <ul>
-
-    <label for="Titulo">Id Post & Título</label>
+    
     <li>
-    <input disabled type="text" name="Titulo" id="Titulo" value="<?php echo $post['IdPost'].'.- '.$post['Titulo']?>" class="field-style field-split align-left" />
+    <input type="hidden" name="IdPost" id="IdPost" value="<?php echo $post['IdPost'];?>" class="field-style field-split align-left" />
+    </li>
+
+    <li>
+    <input type="hidden" name="IdAutor" id="IdAutor" value="<?php echo $post['IdAutor']?>" class="field-style field-split align-left"/>
+    </li>
+
+    <label for="Titulo">Título</label>
+    <li>
+    <input disabled type="text" name="Titulo" id="Titulo" value="<?php echo $post['Titulo']?>" class="field-style field-split align-left" />
     </li>
 
     <label for="Fecha">Fecha de Publicación del Post</label>
     <li>
-    <input type="text" name="Fecha" id="Fecha" value="<?php echo $post['FechaDePublicacion']?>" class="field-style field-split align-left" disabled/>
+    <input disabled type="text" name="Fecha" id="Fecha" value="<?php echo $post['FechaDePublicacion']?>" class="field-style field-split align-left" />
     </li>
 
-    <label for="IdComentario">Id Comentario</label>
+    <label for="Contenido">Contenido del Post</label>
     <li>
-    <input type="text" name="IdComentario" id="IdComentario" value="<?php echo $post['IdComentario']?>"  class="field-style field-split align-left" disabled/>
+    <textarea disabled name="Contenido" id="Contenido"  class="field-style"><?php echo $post['Contenido'];?></textarea>
     </li>
 
-    <label for="FechaCom">Fecha de Comentario</label>
+    <label for="Comentario">Comentar</label>
     <li>
-    <input type="text" name="FechaCom" id="FechaCom" value="<?php echo date("d\-m\-Y")?>" class="field-style field-split align-left" disabled/>
+    <textarea name="Comentario" id="Comentario"  class="field-style"></textarea>
+    </li>
+    
+    <label for="TipoDeComentario">Tipo de Comentario</label>
+    <li>
+      <select name="TipoDeComentario" id="TipoDeComentario">
+        <option value=""></option>
+        <option value="APROBACION">APROBACION</option>
+        <option value="RECHAZO">RECHAZO</option>
+      </select>
     </li>
 
-    <label for="IdAutor">Id Autor del Post</label>
     <li>
-    <input type="text" name="IdAutor" id="IdAutor" value="<?php echo $post['IdAutor']?>" class="field-style field-split align-left" disabled/>
-    </li>
-
-    <label for="Contenido">Comentarios</label>
-    <li>
-    <textarea name="Contenido" id="Contenido"  class="field-style"></textarea>
-    </li>
-    
-    <li>
-    
-    <input type="submit"  value="Guardar nuevo Comentario"  />
-    
-    
+    <input type="submit"  name='comentar' value="Crear Comentario"  />
     </li>
 
     </ul>
     </form>
-  </body>
-</html>
+<?php
+require 'view.Footer.php';  
+}
+else{
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='../'</script>";
+}
+
+?>

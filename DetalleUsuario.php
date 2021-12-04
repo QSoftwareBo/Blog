@@ -2,10 +2,10 @@
 require 'models/model.conexion.php';
 require 'models/model.CambioRol.php';
 require 'views/view.Header.php';
-require 'ComprobacionRol.php';
-require 'FuncionesDeSesion.php';
-restringirAdministrador();
-ComprobarSesionControladores();
+require 'ComprobarAccesos.php';
+$acceso=AccesoSoloAdministrador();
+if ($acceso){
+
 $conexion=conexion();
 
 if(isset($_GET['id'])){
@@ -33,4 +33,9 @@ else{
     }
 
 require 'views/view.DetallesUsuario.php';
+}
+else {
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='index.php'</script>";
+}
 ?>
