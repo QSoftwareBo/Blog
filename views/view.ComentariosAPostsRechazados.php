@@ -2,6 +2,10 @@
 require '../models/model.conexion.php';
 require '../models/model.Comentarios.php';
 require 'view.Header.php';
+require '../ComprobarAccesos.php';
+$acceso=AccesoSoloEditor();
+if ($acceso){
+
 $conexion=conexion();
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
@@ -30,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             <th>Tipo de Comentario</th>
             <th>Fecha de Comentario</th>
         </tr>
+        <?php if(!empty($rechazados)):?>
         <tr>
            <?php foreach ($rechazados as $dato):?>
             <tr>
@@ -40,10 +45,16 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             <td><?php echo $dato['TipoDeComentario'];?></td>
             <td><?php echo $dato['FechaDeComentario'];?></td>
             </tr>
-            <?php endforeach;?> 
+            <?php endforeach;?>
+            <?php endif;?> 
         </tr>
     </table>
 
 <?php 
 require 'view.Footer.php';
+}
+else{
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='../'</script>";
+}
 ?>

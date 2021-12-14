@@ -1,4 +1,6 @@
-<?php require 'view.Header.php';?>
+<?php 
+require 'view.Header.php';
+?>
 <link rel="stylesheet" href="css/estilos.css">
 
 <div class="form-style-9">

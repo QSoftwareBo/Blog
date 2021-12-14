@@ -2,32 +2,35 @@
 require '../models/model.conexion.php';
 require '../models/model.Comentarios.php';
 require 'view.Header.php';
+require '../ComprobarAccesos.php';
+$acceso=AccesoSoloEditor();
+if ($acceso){
 $conexion=conexion();
-$comentarios =ObtenerComentariosPublicos($conexion);
+
+$comentarios=ObtenerComentariosDePostsPublicados($conexion);
 ?>
 
 <hr></hr>
 <table>
-        <h2>Lista General De Comentarios</h2>
+        <h2>Lista General De Comentarios de Posts PUBLICADOS</h2>
         <tr>
             <th>Id</th>
             <th>Comentario</th>
-            <th>IdAutor</th>
-            <th>IdPost</th>
+            <th>Autor</th>
+            <th>Titulo Del Post</th>
             <th>Tipo de Comentario</th>
             <th>Fecha de Comentario</th>
-            <th>Detalle</th>
+            
         </tr>
         <tr>
            <?php foreach ($comentarios as $dato):?>
             <tr>
-            <td><?php echo $dato['Id'];?></td>
+            <td><?php echo $dato['IdComentario'];?></td>
             <td><?php echo $dato['Contenido'];?></td>
-            <td><?php echo $dato['IdUsuario'];?></td>
-            <td><?php echo $dato['IdPost'];?></td>
+            <td><?php echo $dato['NombreUsuario'];?></td>
+            <td><?php echo $dato['TituloPost'];?></td>
             <td><?php echo $dato['TipoDeComentario'];?></td>
             <td><?php echo $dato['FechaDeComentario'];?></td>
-            <td><input type="button" onclick="location.href='../DetalleComentariosAutor.php?IdComentario=<?php echo $dato['Id'];?>&IdPost=<?php echo $dato['IdPost'];?>'" value="Detalle"></td>
             </tr>
             <?php endforeach;?> 
         </tr>
@@ -35,4 +38,9 @@ $comentarios =ObtenerComentariosPublicos($conexion);
 
 <?php 
 require 'view.Footer.php';
+}
+else{
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='../'</script>";
+}
 ?>

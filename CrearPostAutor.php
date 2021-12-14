@@ -1,38 +1,36 @@
 <?php 
-require 'models/model.FuncionesDeSesion.php';
+
 require 'models/model.conexion.php';
 require 'views/view.Header.php';
+require 'ComprobarAccesos.php';
+require 'models/model.CrearPost.php';
 
-$comprobar=ComprobarSesionControladores();
+$acceso=AccesoSoloEscritor();
+if($acceso){
+
 $conexion=conexion();
-$IdUsuario='1';
+$IdUsuario=$_SESSION['id'];
+$Autor=$_SESSION['nombre'];
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
-    $EstadoBorrador=htmlspecialchars($_POST['Borrador']);
-    $EstadoRevision=htmlspecialchars($_POST['Revision']);
-    if(isset($EstadoBorrador)){
+    $Titulo = htmlspecialchars($_POST['Titulo']);
+    $Contenido = htmlspecialchars($_POST['Contenido']);
+    
+    if(isset($_POST['Borrador'])){
         $Estado='BORRADOR';
     }
-    if(isset($EstadoRevision)){
+    if(isset($_POST['Enviar'])){
         $Estado='ENVIADO';
     }
-    $Titulo=htmlspecialchars($_POST['Titulo']);
-    $Contenido = htmlspecialchars($_POST['Contenido']);
-    $statement = $conexion->prepare ("INSERT INTO post (Id, Titulo, Contenido, FechaDePublicacion, Estado, IdAutor) VALUES (null, :Titulo, :Contenido, CURDATE(), :Estado, :IdUsuario)");   
-    $statement->execute(array(
-        ":Titulo"=>$Titulo,
-        ":Contenido"=>$Contenido,
-        ":Estado"=>$Estado,
-        ":IdUsuario"=>$IdUsuario
-    ));
-    if ($EstadoBorrador){
-        header ('Location: views/view.PostsBorradores.php');
-    }
-    if ($EstadoRevision){
-        header ('Location: views/view.PostsEnviados.php');
-    }
-   
+    
+    CrearPost($conexion,$Titulo,$Contenido,$Estado,$IdUsuario);
+    header('location: index.php');
 }
 
 require 'views/view.CrearPostAutor.php';
+}
+else{
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='index.php'</script>";
+}
 ?>

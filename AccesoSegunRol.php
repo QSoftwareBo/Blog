@@ -1,4 +1,6 @@
 <?php
 require 'ComprobacionRol.php';
-comprobar();
+require 'FuncionesDeSesion.php';
+comprobarRol();
+ComprobarSesionControladores();
 ?>

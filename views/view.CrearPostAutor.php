@@ -1,4 +1,7 @@
-<?php require 'view.Header.php';?>
+<?php 
+require 'view.Header.php';
+if($acceso){
+?>
 <link rel="stylesheet" href="css/estilos.css">
 
   
@@ -6,9 +9,9 @@
     
     <ul>
     <h2>Nuevo Post</h2>
-    <label for="IdAutor">Id Autor del Post</label>
+    <label for="Autor">Autor del Post</label>
     <li>
-    <input type="text" name="IdAutor" id="IdAutor" value='1' class="field-style field-split align-left" disabled/>
+    <input type="text" name="Autor" id="Autor" value='<?php echo $Autor;?>' class="field-style field-split align-left" disabled/>
     </li>
 
     <label for="Titulo">Título del Post</label>
@@ -25,11 +28,17 @@
     <li>
     
     <input type="submit"  name= "Borrador" value="Guardar como Borrador" />
-    <input type="submit"  name= "Revision" value="Enviar para Revision">
+    <input type="submit"  name= "Enviar" value="Enviar para Revision">
     
     </li>
 
     </ul>
     </form>
 
-<?php require 'view.Footer.php';?>
+<?php require 'view.Footer.php';
+}
+else{
+    echo "<script>alert('Acceso Restringido')</script>";
+    echo "<script>location.href='../'</script>";
+}
+?>
