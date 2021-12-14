@@ -3,7 +3,6 @@ require 'view.Header.php';
 require '../ComprobarAccesos.php';
 $acceso=AccesoSoloPublico();
 if ($acceso){
-
 ?>
     <link rel="stylesheet" href="css/estilos.css">
     <h1>Acceso al usuario con Rol Publico</h1>

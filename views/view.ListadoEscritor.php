@@ -2,7 +2,6 @@
 require 'view.Header.php';
 require '../ComprobarAccesos.php';
 $acceso=AccesoSoloEscritor();
-
 if ($acceso){
 ?>
     <link rel="stylesheet" href="css/estilos.css">
